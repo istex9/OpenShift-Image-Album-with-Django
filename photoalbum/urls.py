@@ -4,11 +4,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
 from django.contrib.auth import views as auth_views
+from templates.registration.views import signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+
     path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('signup/', signup, name='signup'),
 
     path('gallery/', include('gallery.urls')),
 
