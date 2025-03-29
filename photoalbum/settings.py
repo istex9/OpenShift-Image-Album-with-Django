@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://open-shift-image-album-with-django-git-somodibme-dev.apps.rm1.0a51.p1.openshiftapps.com',
+]
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback_key_for_dev')

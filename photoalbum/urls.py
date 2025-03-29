@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('signup/', signup, name='signup'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
 
     path('gallery/', include('gallery.urls')),
 
