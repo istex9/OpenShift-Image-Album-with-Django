@@ -1,27 +1,36 @@
 {% extends 'gallery/base.html' %}
+{% load static %}
 
 {% block content %}
-<h2>Fényképek listája</h2>
+<div class="row">
+  <div class="col-12">
+    <h2>Fényképek listája</h2>
+    <a class="btn btn-primary mb-2" href="{% url 'upload_photo' %}">Új kép feltöltése</a>
 
-<a href="{% url 'upload_photo' %}">Új kép feltöltése</a>
+    <p>Rendezés: 
+      <a href="?sort=name">Név szerint</a> | 
+      <a href="?sort=date">Dátum szerint</a>
+    </p>
 
-<p>Rendezés: 
-<a href="?sort=name">Név szerint</a> | 
-<a href="?sort=date">Dátum szerint</a>
-</p>
-
-<ul>
-    {% for photo in photos %}
-    <li>
-        <a href="{% url 'photo_detail' photo.id %}">{{ photo.name }}</a> 
-        ({{ photo.uploaded_at|date:"Y-m-d H:i" }})
-        
-        {% if user == photo.owner %}
-            | <a href="{% url 'delete_photo' photo.id %}">Törlés</a>
-        {% endif %}
-    </li>
-    {% empty %}
-        <li>Nincs feltöltött kép.</li>
-    {% endfor %}
-</ul>
+    {% if photos %}
+      <ul class="list-group">
+      {% for photo in photos %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <a href="{% url 'photo_detail' photo.id %}">{{ photo.name }}</a>
+            ({{ photo.uploaded_at|date:"Y-m-d H:i" }})
+          </div>
+          {% if user == photo.owner %}
+            <div>
+              <a href="{% url 'delete_photo' photo.id %}" class="btn btn-danger btn-sm">Törlés</a>
+            </div>
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nincs feltöltött kép.</p>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}

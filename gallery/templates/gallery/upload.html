@@ -1,13 +1,11 @@
 {% extends 'gallery/base.html' %}
 
 {% block content %}
-<h2>Új kép feltöltése</h2>
-
-<form method="POST" enctype="multipart/form-data">
+<h2>Kép feltöltése</h2>
+<form method="POST" enctype="multipart/form-data" class="mb-3">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Feltöltés</button>
+    <button type="submit" class="btn btn-success">Feltöltés</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Mégse</a>
 </form>
-
-<a href="{% url 'home' %}">Vissza a kezdőlapra</a>
 {% endblock %}

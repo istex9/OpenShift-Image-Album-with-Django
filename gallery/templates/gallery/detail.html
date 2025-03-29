@@ -3,8 +3,9 @@
 {% block content %}
 <h2>{{ photo.name }}</h2>
 <p>Feltöltve: {{ photo.uploaded_at|date:"Y-m-d H:i" }}</p>
+<img src="{{ photo.image.url }}" class="img-fluid" alt="{{ photo.name }}">
 
-<img src="{{ photo.image.url }}" alt="{{ photo.name }}" width="400px">
-
-<p><a href="{% url 'home' %}">Vissza a listához</a></p>
+<div class="mt-3">
+  <a href="{% url 'home' %}" class="btn btn-secondary">Vissza</a>
+</div>
 {% endblock %}
