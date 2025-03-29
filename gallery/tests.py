@@ -9,7 +9,7 @@ class GalleryTests(TestCase):
 
     def test_login_required_for_upload(self):
         response = self.client.get(reverse('upload_photo'))
-        self.assertRedirects(response, f'/login/?next={reverse("upload_photo")}')
+        self.assertRedirects(response, f'/accounts/login/?next={reverse("upload_photo")}')
 
     def test_homepage_accessible(self):
         self.client.login(username='tesztuser', password='tesztjelszo')
