@@ -64,7 +64,8 @@ A `PostgreSQL` adatbázis a következő táblákat tartalmazza:
 ### auth_user (Django beépített táblája)
 - username, password (hash), last_login, stb.
 
-photoalbumdb=> \d auth_user    
+photoalbumdb=> \d auth_user
+```    
                                      Table "public.auth_user"
     Column    |           Type           | Collation | Nullable |   
 --------------+--------------------------+-----------+----------+
@@ -79,7 +80,7 @@ photoalbumdb=> \d auth_user
  is_staff     | boolean                  |           | not null | 
  is_active    | boolean                  |           | not null | 
  date_joined  | timestamp with time zone |           | not null | 
-
+```
 ### gallery_photo
 - id (PK)
 - name (max. 40 karakter)
@@ -88,6 +89,7 @@ photoalbumdb=> \d auth_user
 - user_id (FK → auth_user.id)
 
 photoalbumdb=> \d gallery_photo
+```
                                    Table "public.gallery_photo"
    Column    |           Type           | Collation | Nullable | 
 -------------+--------------------------+-----------+----------+
@@ -96,7 +98,7 @@ photoalbumdb=> \d gallery_photo
  image       | character varying(100)   |           | not null | 
  uploaded_at | timestamp with time zone |           | not null | 
  owner_id    | integer                  |           | not null | 
-
+```
 
 ### django_session
 - session_key, session_data, expire_date
