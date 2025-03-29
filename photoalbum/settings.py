@@ -19,6 +19,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "gallery",
 ]
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 1800  # másodpercben
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
