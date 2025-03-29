@@ -5,7 +5,6 @@ mkdir -p /opt/app-root/src/media/photos
 
 
 echo " Applying Django migrations..."
-python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 
 echo " Starting Django app..."
