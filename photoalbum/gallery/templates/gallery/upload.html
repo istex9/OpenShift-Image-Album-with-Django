@@ -1,0 +1,13 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+<h2>Új kép feltöltése</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Feltöltés</button>
+</form>
+
+<a href="{% url 'home' %}">Vissza a kezdőlapra</a>
+{% endblock %}

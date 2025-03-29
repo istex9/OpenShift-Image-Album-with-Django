@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Fényképalbum</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        Üdv, {{ user.username }} | <a href="{% url 'logout' %}">Kilépés</a>
+    {% else %}
+        <a href="{% url 'login' %}">Belépés</a>
+    {% endif %}
+    
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

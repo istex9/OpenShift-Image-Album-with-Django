@@ -1,0 +1,27 @@
+{% extends 'gallery/base.html' %}
+
+{% block content %}
+<h2>Fényképek listája</h2>
+
+<a href="{% url 'upload_photo' %}">Új kép feltöltése</a>
+
+<p>Rendezés: 
+<a href="?sort=name">Név szerint</a> | 
+<a href="?sort=date">Dátum szerint</a>
+</p>
+
+<ul>
+    {% for photo in photos %}
+    <li>
+        <a href="{% url 'photo_detail' photo.id %}">{{ photo.name }}</a> 
+        ({{ photo.uploaded_at|date:"Y-m-d H:i" }})
+        
+        {% if user == photo.owner %}
+            | <a href="{% url 'delete_photo' photo.id %}">Törlés</a>
+        {% endif %}
+    </li>
+    {% empty %}
+        <li>Nincs feltöltött kép.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
