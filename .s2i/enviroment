@@ -5,3 +5,4 @@ POSTGRES_HOST = postgresql  # service neve amit létrehoztál
 POSTGRES_PORT = 5432
 DJANGO_SETTINGS_MODULE = photoalbum.settings
 DISABLE_COLLECTSTATIC = 0
+DJANGO_SECRET_KEY = django-insecure-&t*i8z%&7mx60rr@+-nhxi+@ssz2$0ofaso59!0f4mmerx3@71
